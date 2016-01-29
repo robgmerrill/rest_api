@@ -3,7 +3,8 @@ const app = module.exports = exports = express();
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/beers_app_dev');
 
-const beersRouter = require(__dirname + '/routers/beers_routes');
+const beersRouter = require(__dirname + '/routes/beers');
+const wineRouter = require(__dirname + '/routes/wines')
 
 app.use('/api', beersRouter);
 
