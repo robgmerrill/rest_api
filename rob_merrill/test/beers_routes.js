@@ -8,12 +8,11 @@ const server = require(__dirname + '/../server');
 const Beer = require(__dirname + '/../models/beer');
 
 describe('the beers api', () => {
-  after((done) => {
-    mongoose.connection.db.dropDatabase() => {
+ after((done) => {
+    mongoose.connection.db.dropDatabase(() => {
       done();
   });
-});
-
+}); // end after
 it('should be able to retrieve all of our beers', (done) => {
   chai.request('localhost:3000')
     .get('/api/beers')
@@ -22,8 +21,7 @@ it('should be able to retrieve all of our beers', (done) => {
       expect(Array.isArray(res.body)).to.eql(true);
       done();
     });
-});
-
+}); // end get test
 it('should create a beer with a POST', (done) => {
   chai.request('localhost:3000')
     .post('/api/beers')
@@ -33,6 +31,12 @@ it('should create a beer with a POST', (done) => {
       expect(res).to.have.status(200);
       expect(res.body.name).to.eql('test beer');
       expect(res.body).to.have.property('_id');
-      done()
+      done();
     });
-});
+}); // end post test
+
+}); // end describe
+
+
+
+
