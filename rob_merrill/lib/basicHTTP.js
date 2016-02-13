@@ -3,7 +3,7 @@
 const zero = require(__dirname + '/zeroBuf');
 
 module.exports = exports = function(req, res, next) {
-  try {
+ try {
     var authBuf = new Buffer(req.headers.authorization.split(' ')[1], 'base64');
 
     zero(authBuf);

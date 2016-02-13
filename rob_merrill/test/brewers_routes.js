@@ -11,7 +11,7 @@ describe('the brewers api', () => {
   after((done) => {
     mongoose.connection.db.dropDatabase(() => {
       done();
-  });
+        });
 });
 
 it('should be able to retrieve all of our brewers', (done) => {
@@ -34,6 +34,6 @@ it('should create a brewer with a POST', (done) => {
       expect(res.body.name).to.eql('test brewer');
       expect(res.body).to.have.property('_id');
       done()
-    });
+     });
 });
 });

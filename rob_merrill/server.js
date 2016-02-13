@@ -7,13 +7,12 @@ mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/beers_app_dev'
 
 const beersRouter = require(__dirname + '/routes/beers');
 const brewersRouter = require(__dirname + '/routes/brewers');
-const nonCrudRouter = require(__dirname + '/routes/nonCrudRouter');
+const beersDrankRouter = require(__dirname + '/routes/beersDrankRouter');
 const userRouter = require(__dirname + '/routes/userRoutes');
 
 app.use('/api', beersRouter);
 app.use('/api', brewersRouter);
 app.use('/api', userRouter);
-// app.use('/nonCrud', nonCrudRouter);
 
 var PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log('server is up on port: ' + PORT));

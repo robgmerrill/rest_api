@@ -6,9 +6,9 @@ const Brewer = require(__dirname + '/../models/brewer');
 const Beer = require(__dirname + '/../models/beer');
 const handleDBError = require(__dirname + '/../lib/handle_db_error');
 
-var nonCrudRouter = module.exprots = exports = express.Router();
+var beersDrankrouter = module.exprots = exports = express.Router();
 
-nonCrudRouter.get('/howManyBeers', (req, res) => {
+beersDrankrouter.get('/howManyBeers', (req, res) => {
   var brewers = new Promise((resolve) => {
     Brewer.count({}, (err, data) => {
       if (err) return handleDBError(err, res);
