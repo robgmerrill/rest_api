@@ -8,11 +8,11 @@ module.exports = exports = function(req, res, next) {
   try {
     decoded = jwt.verify(req.headers.token, process.env.APP_SECRET || 'changethis');
   } catch (e) {
-    constole.log(e);
-    return res.status(401).json({msg: 'you are not an authentic user'});
+    console.log(e);
+    return res.status(401).json({msg: 'you are not an authentic user: invalid json'});
   }
   User.findOne({ _id: decoded.id }, (err, user) => {
-    if (err) return res.status(401).json({ msg: 'you are not an authentic user'});
+    if (err) return res.status(401).json({ msg: 'you are not an authentic user: invalid password'});
     if (!user) return res.status(401).json({ msg: 'you are not an authentic user'});
     req.user = user;
     next();

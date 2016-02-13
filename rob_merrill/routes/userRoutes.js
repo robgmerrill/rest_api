@@ -10,12 +10,12 @@ const unique = require(__dirname + '/../lib/uniqueUsername');
 var authRouter = module.exports = exports = express.Router();
 
 authRouter.post('/signup', jsonParser, unique, (req, res) => {
-  if(!((req.body.email || '').length && (req.body.password || '').length > 8)) {
+  if(!((req.body.email || '').length && (req.body.password || '').length > 7)) {
     return res.status(400).json({msg: 'invalid username or password'});
   }
   var newUser = new User();
   newUser.username = req.body.username || req.body.email;
-  newUser.authtication.email = req.body.email;
+  newUser.authentication.email = req.body.email;
   newUser.hashPassword(req.body.password);
   newUser.save((err, data) => {
     if (err) return handleDBError(err, res);
