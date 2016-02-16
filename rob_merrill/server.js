@@ -14,7 +14,7 @@ const userRouter = require(__dirname + '/routes/userRoutes');
 app.use('/api', beerRouter);
 app.use('/api', brewerRouter);
 app.use('/api', userRouter);
-// app.use('/beersDrank', beersDrankRouter);
+app.use('/beersDrank', beersDrankRouter);
 
 var PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log('server is up on port: ' + PORT));
