@@ -1,13 +1,15 @@
+// const beersApp = angular.module('beersApp', []);
 require('../app/js/client');
 var angular = require('angular');
 require('angular-mocks');
+
 
 describe('beers controller', () => {
   var $httpBackend;
   var $scope;
   var $ControllerConstructor;
 
-  beforeEach(angular.mock.module('beerApp'));
+  beforeEach(angular.mock.module('beersApp'));
 
   beforeEach(angular.mock.inject(function($rootScope, $controller) {
     $ControllerConstructor = $controller;
