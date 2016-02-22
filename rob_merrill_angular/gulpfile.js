@@ -16,5 +16,20 @@ gulp.task('webpack:dev', () => {
       .pipe(gulp.dest('build/'));
 });
 
+gulp.task('webpack:test', () => {
+  gulp.src(__dirname + '/test/test_entry.js')
+    .pipe(webpack({
+      output: {
+        filename: 'test_bundle.js'
+      }
+    }))
+    .pipe(gulp.dest(__dirname + '/test/'));
+});
+
+// gulp.task('watch', function() {
+//   gulp.watch(['app/js/client.js', 'app/index.html'], ['build:dev']);
+//   gulp.watch(['test/test_entry.js'], ['webpack:test']);
+// });
+
 gulp.task('build:dev', ['webpack:dev', 'html:dev']);
-gulp.task('default', ['build:dev']);
+gulp.task('default', ['build:dev', 'webpack:test']);
