@@ -11,6 +11,13 @@ const brewerRouter = require(__dirname + '/routes/brewers');
 const beersDrankRouter = require(__dirname + '/routes/beersDrankRouter');
 const userRouter = require(__dirname + '/routes/userRoutes');
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:5000');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  next();
+});
+
 app.use('/api', beerRouter);
 app.use('/api', brewerRouter);
 app.use('/api', userRouter);
