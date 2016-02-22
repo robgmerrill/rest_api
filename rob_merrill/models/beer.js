@@ -1,3 +1,5 @@
+'use strict';
+
 const mongoose = require('mongoose');
 
 var beerSchema = new mongoose.Schema({
