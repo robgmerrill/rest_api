@@ -1,5 +1,9 @@
 const gulp = require('gulp');
 const webpack = require('webpack-stream');
+const eslint = require('gulp-eslint');
+const mocha = require('gulp-mocha');
+const files = ['test/*.js', '!node_modules//**'];
+const babel = require('babel-loader');
 
 gulp.task('html:dev', () => {
   gulp.src(__dirname + '/app/**/*.html')
@@ -7,7 +11,7 @@ gulp.task('html:dev', () => {
 });
 
 gulp.task('webpack:dev', () => {
-  gulp.src(__dirname + '/app/js/client/js')
+  gulp.src(__dirname + '/app/js/client.js')
     .pipe(webpack({
       output: {
         filename: 'bundle.js'
