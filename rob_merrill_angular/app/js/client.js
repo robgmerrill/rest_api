@@ -3,8 +3,6 @@ const angular = require('angular');
 const beerApp = angular.module('beerApp', []);
 
 beerApp.controller('beerController', ['$scope', '$http', ($scope, $http) => {
-  // $scope.greeting = 'hello world';
-  // $scope.beers = [];
 
   $http.get('http://localhost:3000/api/beers')
     .then((res) => {
