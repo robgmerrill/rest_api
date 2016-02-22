@@ -34,7 +34,7 @@ describe('beers controller', () => {
       ControllerConstructor('BeersController', {$scope});
     }));
 
-    afterEach() => {
+    afterEach(() => {
       $httpBackend.verifyNoOutstandingExpectation(); 
       $httpBackend.verifyNoOutstandingRequest();
     });
@@ -44,7 +44,7 @@ describe('beers controller', () => {
       $scope.getAll();
       $httpBackend.flush();
       expect($scope.beers.length).toBe(1);
-      expect($scope.beers[0].name)toBe('test beer');
+      expect($scope.beers[0].name).toBe('test beer');
     });
 
      it('should make a get request to /api/brewers', () => {
@@ -52,7 +52,7 @@ describe('beers controller', () => {
       $scope.getAll();
       $httpBackend.flush();
       expect($scope.beers.length).toBe(1);
-      expect($scope.beers[0].name)toBe('test brewer');
+      expect($scope.beers[0].name).toBe('test brewer');
     });
 
     it('should create a new beer', () => {
