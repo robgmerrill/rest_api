@@ -1,7 +1,7 @@
 const angular = require('angular');
 const beersApp = angular.module('beersApp', []);
 
-beerApp.controller('BeersController', ['$scope', '$http', ($scope, $http) => {
+beersApp.controller('BeersController', ['$scope', '$http', ($scope, $http) => {
 
   $http.get('http://localhost:3000/api/beers')
     .then((res) => {

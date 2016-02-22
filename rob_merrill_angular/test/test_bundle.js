@@ -184,7 +184,7 @@
 	const angular = __webpack_require__(3);
 	const beersApp = angular.module('beersApp', []);
 
-	beerApp.controller('BeersController', ['$scope', '$http', ($scope, $http) => {
+	beersApp.controller('BeersController', ['$scope', '$http', ($scope, $http) => {
 
 	  $http.get('http://localhost:3000/api/beers')
 	    .then((res) => {
